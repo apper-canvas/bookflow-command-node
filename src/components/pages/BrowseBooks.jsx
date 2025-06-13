@@ -227,7 +227,7 @@ useEffect(() => {
               }}
             />
           ) : (
-            <motion.div
+<motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               className={
@@ -236,7 +236,7 @@ useEffect(() => {
                   : 'space-y-4'
               }
             >
-{filteredBooks.map((book, index) => (
+              {filteredBooks.map((book, index) => (
                 <motion.div
                   key={book.id}
                   initial={{ opacity: 0, y: 20 }}
@@ -252,11 +252,14 @@ useEffect(() => {
                   />
                 </motion.div>
               ))}
+            </motion.div>
           )}
         </div>
       </div>
     </div>
   )
 }
+
+export default BrowseBooks
 
 export default BrowseBooks
