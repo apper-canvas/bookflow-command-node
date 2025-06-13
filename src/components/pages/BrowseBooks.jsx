@@ -237,20 +237,20 @@ useEffect(() => {
               }
             >
               {filteredBooks.map((book, index) => (
-                <motion.div
+<motion.div
                   key={book.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-<BookCard
+                  <BookCard
                     book={book}
                     onBorrow={handleBorrowBook}
                     onReserve={handleReserveBook}
                     userReservation={getUserReservationForBook(book.id)}
                     showBorrowButton={true}
                   />
-              ))}
+                </motion.div>
             </motion.div>
           )}
         </div>
