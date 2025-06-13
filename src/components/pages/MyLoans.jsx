@@ -23,7 +23,7 @@ const MyLoans = () => {
     setLoading(true)
     setError(null)
     try {
-      const result = await loanService.getCurrentLoans()
+const result = await loanService.getCurrentLoans()
       setLoans(result)
     } catch (err) {
       setError(err.message || 'Failed to load loans')
@@ -35,7 +35,7 @@ const MyLoans = () => {
 
   const handleReturnBook = async (loan) => {
     try {
-      await loanService.returnBook(loan.id)
+await loanService.returnBook(loan.id)
       await bookService.returnBook(loan.bookId)
       
       // Update local state

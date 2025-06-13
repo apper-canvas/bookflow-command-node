@@ -108,7 +108,7 @@ const LoanCard = ({ loan, onReturn, onRenew }) => {
             </div>
 
             <div className="text-xs text-gray-500 space-y-1">
-              <p><span className="font-medium">Borrowed:</span> {loan.borrowDate.toLocaleDateString()}</p>
+<p><span className="font-medium">Borrowed:</span> {loan.borrowDate.toLocaleDateString()}</p>
               <p><span className="font-medium">Due:</span> {loan.dueDate.toLocaleDateString()}</p>
               {loan.returnDate && (
                 <p><span className="font-medium">Returned:</span> {loan.returnDate.toLocaleDateString()}</p>

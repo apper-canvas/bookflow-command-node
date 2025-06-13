@@ -10,7 +10,7 @@ export const useOverdueAlerts = () => {
     const checkOverdueLoans = async () => {
       setLoading(true)
       try {
-        const overdue = await loanService.getOverdueLoans()
+const overdue = await loanService.getOverdueLoans()
         setOverdueLoans(overdue)
         setOverdueCount(overdue.length)
       } catch (error) {

@@ -27,7 +27,7 @@ const History = () => {
     setLoading(true)
     setError(null)
     try {
-      const result = await loanService.getLoanHistory()
+const result = await loanService.getLoanHistory()
       setLoans(result)
     } catch (err) {
       setError(err.message || 'Failed to load history')

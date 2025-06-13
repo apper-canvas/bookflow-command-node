@@ -47,7 +47,7 @@ const Search = () => {
     setSearchPerformed(true)
     
     try {
-      const result = await bookService.search(query, searchFilters)
+const result = await bookService.search(query, searchFilters)
       setBooks(result)
       
       // Update URL with search query
@@ -83,7 +83,7 @@ const Search = () => {
 
   const handleBorrowBook = async (book) => {
     try {
-      await loanService.borrowBook(book.id)
+await loanService.borrowBook(book.id)
       await bookService.borrowBook(book.id)
       
       // Update local state

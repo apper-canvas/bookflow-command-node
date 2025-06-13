@@ -38,7 +38,7 @@ useEffect(() => {
     setLoading(true)
     setError(null)
     try {
-      const result = await bookService.getAll()
+const result = await bookService.getAll()
       setBooks(result)
     } catch (err) {
       setError(err.message || 'Failed to load books')
@@ -83,7 +83,7 @@ useEffect(() => {
   const handleBorrowBook = async (book) => {
     setBorrowing(true)
     try {
-      await loanService.borrowBook(book.id)
+await loanService.borrowBook(book.id)
       await bookService.borrowBook(book.id)
       
       // Update local state
