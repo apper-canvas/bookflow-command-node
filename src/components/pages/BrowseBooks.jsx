@@ -236,8 +236,8 @@ useEffect(() => {
                   : 'space-y-4'
               }
             >
-              {filteredBooks.map((book, index) => (
-<motion.div
+{filteredBooks.map((book, index) => (
+                <motion.div
                   key={book.id}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -251,7 +251,7 @@ useEffect(() => {
                     showBorrowButton={true}
                   />
                 </motion.div>
-            </motion.div>
+              ))}
           )}
         </div>
       </div>
