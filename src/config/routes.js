@@ -2,6 +2,7 @@ import BrowseBooks from '@/components/pages/BrowseBooks'
 import MyLoans from '@/components/pages/MyLoans'
 import History from '@/components/pages/History'
 import Search from '@/components/pages/Search'
+import UserProfile from '@/components/pages/UserProfile'
 
 export const routes = {
   browse: {
@@ -25,12 +26,19 @@ export const routes = {
     icon: 'History',
     component: History
   },
-  search: {
+search: {
     id: 'search', 
     label: 'Search',
     path: '/search',
     icon: 'Search',
     component: Search
+  },
+  profile: {
+    id: 'profile',
+    label: 'Profile',
+    path: '/profile',
+    icon: 'User',
+    component: UserProfile
   }
 }
 

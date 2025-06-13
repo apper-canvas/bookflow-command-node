@@ -61,11 +61,15 @@ const Layout = () => {
                 </span>
               </div>
             )}
+)}
             
             {/* User Avatar */}
-            <div className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center">
+            <NavLink
+              to="/profile"
+              className="w-8 h-8 bg-secondary rounded-full flex items-center justify-center hover:bg-secondary/80 transition-colors"
+            >
               <ApperIcon name="User" className="w-4 h-4 text-white" />
-            </div>
+            </NavLink>
 
             {/* Mobile Menu Button */}
             <button
