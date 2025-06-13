@@ -19,8 +19,8 @@ const BrowseBooks = () => {
   const [error, setError] = useState(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [filters, setFilters] = useState({})
-  const [viewMode, setViewMode] = useState('grid')
-const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+const [viewMode, setViewMode] = useState('grid')
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [borrowing, setBorrowing] = useState(false)
   const [reserving, setReserving] = useState(false)
   const [userReservations, setUserReservations] = useState([])
@@ -259,7 +259,5 @@ useEffect(() => {
     </div>
   )
 }
-
-export default BrowseBooks
 
 export default BrowseBooks
