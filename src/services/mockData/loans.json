@@ -1,0 +1,62 @@
+[
+  {
+    "id": "1",
+    "userId": "current-user",
+    "bookId": "1",
+    "borrowDate": "2024-01-15T00:00:00.000Z",
+    "dueDate": "2024-01-29T00:00:00.000Z",
+    "returnDate": null,
+    "status": "active",
+    "lateFee": 0
+  },
+  {
+    "id": "2",
+    "userId": "current-user",
+    "bookId": "3",
+    "borrowDate": "2024-01-10T00:00:00.000Z",
+    "dueDate": "2024-01-18T00:00:00.000Z",
+    "returnDate": null,
+    "status": "active",
+    "lateFee": 0
+  },
+  {
+    "id": "3",
+    "userId": "current-user",
+    "bookId": "6",
+    "borrowDate": "2024-01-20T00:00:00.000Z",
+    "dueDate": "2024-02-03T00:00:00.000Z",
+    "returnDate": null,
+    "status": "active",
+    "lateFee": 0
+  },
+  {
+    "id": "4",
+    "userId": "current-user",
+    "bookId": "4",
+    "borrowDate": "2023-12-15T00:00:00.000Z",
+    "dueDate": "2023-12-29T00:00:00.000Z",
+    "returnDate": "2023-12-28T00:00:00.000Z",
+    "status": "returned",
+    "lateFee": 0
+  },
+  {
+    "id": "5",
+    "userId": "current-user",
+    "bookId": "8",
+    "borrowDate": "2023-11-20T00:00:00.000Z",
+    "dueDate": "2023-12-04T00:00:00.000Z",
+    "returnDate": "2023-12-10T00:00:00.000Z",
+    "status": "returned",
+    "lateFee": 3.00
+  },
+  {
+    "id": "6",
+    "userId": "current-user",
+    "bookId": "9",
+    "borrowDate": "2023-10-15T00:00:00.000Z",
+    "dueDate": "2023-10-29T00:00:00.000Z",
+    "returnDate": "2023-10-27T00:00:00.000Z",
+    "status": "returned",
+    "lateFee": 0
+  }
+]
