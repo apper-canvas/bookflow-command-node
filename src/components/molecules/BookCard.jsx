@@ -3,9 +3,10 @@ import { useState } from 'react'
 import ApperIcon from '@/components/ApperIcon'
 import Button from '@/components/atoms/Button'
 import Badge from '@/components/atoms/Badge'
+import ReservationQueue from '@/components/atoms/ReservationQueue'
 import BookDetailModal from './BookDetailModal'
 
-const BookCard = ({ book, onBorrow, showBorrowButton = true }) => {
+const BookCard = ({ book, onBorrow, onReserve, userReservation, showBorrowButton = true }) => {
   const [showModal, setShowModal] = useState(false)
 
   const getAvailabilityBadge = () => {
@@ -48,32 +49,52 @@ const BookCard = ({ book, onBorrow, showBorrowButton = true }) => {
           <p className="text-xs text-gray-600 mb-2">{book.author}</p>
           <p className="text-xs text-gray-500 mb-3">{book.genre} • {book.publicationYear}</p>
           
-          {showBorrowButton && (
+{showBorrowButton && (
             <div onClick={(e) => e.stopPropagation()}>
-              <Button
-                size="small"
-                variant={book.availableCopies > 0 ? "primary" : "outline"}
-                disabled={book.availableCopies === 0}
-                onClick={(e) => {
-                  e.stopPropagation()
-                  if (book.availableCopies > 0) {
+              {book.availableCopies > 0 ? (
+                <Button
+                  size="small"
+                  variant="primary"
+                  onClick={(e) => {
+                    e.stopPropagation()
                     onBorrow?.(book)
-                  }
-                }}
-                className="w-full"
-              >
-                {book.availableCopies > 0 ? 'Borrow' : 'Unavailable'}
-              </Button>
+                  }}
+                  className="w-full"
+                >
+                  Borrow
+                </Button>
+              ) : (
+                <Button
+                  size="small"
+                  variant="outline"
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    onReserve?.(book)
+                  }}
+                  className="w-full"
+                >
+                  Reserve
+                </Button>
+              )}
+              
+              {userReservation && (
+                <ReservationQueue
+                  position={userReservation.position}
+                  estimatedAvailability={userReservation.estimatedAvailability}
+                />
+              )}
             </div>
           )}
         </div>
       </motion.div>
 
-      <BookDetailModal
+<BookDetailModal
         book={book}
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         onBorrow={onBorrow}
+        onReserve={onReserve}
+        userReservation={userReservation}
         showBorrowButton={showBorrowButton}
       />
     </>

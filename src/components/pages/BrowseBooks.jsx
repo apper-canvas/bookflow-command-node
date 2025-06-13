@@ -20,11 +20,14 @@ const BrowseBooks = () => {
   const [searchQuery, setSearchQuery] = useState('')
   const [filters, setFilters] = useState({})
   const [viewMode, setViewMode] = useState('grid')
-  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
+const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [borrowing, setBorrowing] = useState(false)
+  const [reserving, setReserving] = useState(false)
+  const [userReservations, setUserReservations] = useState([])
 
-  useEffect(() => {
+useEffect(() => {
     loadBooks()
+    loadUserReservations()
   }, [])
 
   useEffect(() => {
@@ -42,6 +45,15 @@ const BrowseBooks = () => {
       toast.error('Failed to load books')
     } finally {
       setLoading(false)
+    }
+}
+
+  const loadUserReservations = async () => {
+    try {
+      const reservations = await loanService.getReservationQueue()
+      setUserReservations(reservations)
+    } catch (err) {
+      console.error('Error loading reservations:', err)
     }
   }
 
@@ -87,6 +99,28 @@ const BrowseBooks = () => {
     } finally {
       setBorrowing(false)
     }
+}
+
+  const handleReserveBook = async (book) => {
+    setReserving(true)
+    try {
+      const reservation = await loanService.reserveBook(book.id)
+      
+      // Update local reservations state
+      setUserReservations(prev => [...prev, reservation])
+      
+      toast.success(`Successfully reserved "${book.title}"! You are #${reservation.position} in queue.`)
+    } catch (err) {
+      toast.error(err.message || 'Failed to reserve book')
+    } finally {
+      setReserving(false)
+    }
+  }
+
+  const getUserReservationForBook = (bookId) => {
+    return userReservations.find(reservation => 
+      reservation.bookId === bookId && reservation.status === 'active'
+    )
   }
 
   if (loading) {
@@ -209,12 +243,13 @@ const BrowseBooks = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <BookCard
+<BookCard
                     book={book}
                     onBorrow={handleBorrowBook}
+                    onReserve={handleReserveBook}
+                    userReservation={getUserReservationForBook(book.id)}
                     showBorrowButton={true}
                   />
-                </motion.div>
               ))}
             </motion.div>
           )}
