@@ -236,7 +236,7 @@ await loanService.borrowBook(book.id)
                   : 'space-y-4'
               }
             >
-              {filteredBooks.map((book, index) => (
+{filteredBooks.map((book, index) => (
                 <motion.div
                   key={book.id}
                   initial={{ opacity: 0, y: 20 }}
